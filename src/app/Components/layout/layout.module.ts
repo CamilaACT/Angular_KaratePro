@@ -8,6 +8,8 @@ import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.com
 import { ModalRegistrarseComponent } from './Modales/modal-registrarse/modal-registrarse.component';
 import { RangoComponent } from './Pages/rango/rango.component';
 import { ModalRangoComponent } from './Modales/modal-rango/modal-rango.component';
+import { ClubComponent } from './Pages/club/club.component';
+import { ModalClubComponent } from './Modales/modal-club/modal-club.component';
 
 
 
@@ -18,7 +20,9 @@ import { ModalRangoComponent } from './Modales/modal-rango/modal-rango.component
     ModalUsuarioComponent,
     ModalRegistrarseComponent,
     RangoComponent,
-    ModalRangoComponent
+    ModalRangoComponent,
+    ClubComponent,
+    ModalClubComponent
   ],
   imports: [
     CommonModule,
