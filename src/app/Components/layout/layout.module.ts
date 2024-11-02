@@ -6,6 +6,8 @@ import { UsuarioComponent } from './Pages/usuario/usuario.component';
 import { SharedModule } from '../../Reutilizable/shared/shared.module';
 import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.component';
 import { ModalRegistrarseComponent } from './Modales/modal-registrarse/modal-registrarse.component';
+import { RangoComponent } from './Pages/rango/rango.component';
+import { ModalRangoComponent } from './Modales/modal-rango/modal-rango.component';
 
 
 
@@ -14,7 +16,9 @@ import { ModalRegistrarseComponent } from './Modales/modal-registrarse/modal-reg
   declarations: [
     UsuarioComponent,
     ModalUsuarioComponent,
-    ModalRegistrarseComponent
+    ModalRegistrarseComponent,
+    RangoComponent,
+    ModalRangoComponent
   ],
   imports: [
     CommonModule,
