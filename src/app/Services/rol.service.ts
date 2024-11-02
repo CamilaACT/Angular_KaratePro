@@ -11,10 +11,10 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class RolService {
-  private urlApi:string=environment.apiUrl + "Roles/";
+  private urlApi:string=environment.apiUrl + "Rol/";
 
   constructor(private http:HttpClient) { }  
   listaRoles(request:number):Observable<ResponseApi>{
-    return this.http.get<ResponseApi>(`${this.urlApi}listarRoles`);
+    return this.http.get<ResponseApi>(`${this.urlApi}consultaTodo`);
   }
 }

@@ -5,6 +5,7 @@ import { Login } from '../interfaces/login';
 import { ResponseApi } from '../interfaces/response-api';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
+import { UsuarioAUsuario } from '../interfaces/usuario-a-usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class LoginService {
     return this.http.post<ResponseApi>(`${this.urlApi}inicioSesion`, request);
   }
 
-  Registrarse(request:Usuario):Observable<ResponseApi>{
+  Registrarse(request:UsuarioAUsuario):Observable<ResponseApi>{
     return this.http.post<ResponseApi>(`${this.urlApi}registrarse`, request);
   }
 

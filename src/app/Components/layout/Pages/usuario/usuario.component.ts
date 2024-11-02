@@ -9,16 +9,17 @@ import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
 import Swal from 'sweetalert2'
 import { UsurioId } from '../../../../interfaces/usuario-id';
 import { UsurioNombre } from '../../../../interfaces/usuario-nombre';
+import { UsuarioAUsuario } from '../../../../interfaces/usuario-a-usuario';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
 export class UsuarioComponent implements OnInit,AfterViewInit {
-columnasTable:string[]=["nombre","correo","rolDescripcion","estado","acciones"];
-dataInicio:Usuario[]=[];
+columnasTable:string[]=["nombre","cedula","rolDescripcion","acciones"];
+dataInicio:UsuarioAUsuario[]=[];
 dataListaUsarios=new MatTableDataSource(this.dataInicio);
-usuarioId: UsurioId={ idUsuario: 1 };
+
 @ViewChild(MatPaginator) paginacionTabla!:MatPaginator;
 
 constructor(
@@ -31,7 +32,7 @@ constructor(
 
 obtenerUsuarios(){
 
-  this._usuarioServicio.listaUsuarios(this.usuarioId).subscribe({
+  this._usuarioServicio.listaUsuarios().subscribe({
     next: (data) => {
       if (data.codigoError === -1) {  // Verificamos si data.status es verdadero
         this.dataListaUsarios.data=data.result
@@ -45,8 +46,8 @@ obtenerUsuarios(){
 }})
 }
   ngOnInit(): void {
-    this.dataListaUsarios.filterPredicate = (data: Usuario, filter: string) => {
-      return data.nombre.toLowerCase().includes(filter) || data.correo.toLowerCase().includes(filter);
+    this.dataListaUsarios.filterPredicate = (data: UsuarioAUsuario, filter: string) => {
+      return data.usu_nombre.toLowerCase().includes(filter) || data.usu_cedula.toLowerCase().includes(filter);
     };
     this.obtenerUsuarios();
     
@@ -58,7 +59,7 @@ obtenerUsuarios(){
   aplicarFiltroTabla(event:Event){
     const filterValue = (event.target as HTMLInputElement).value;
     //this.dataListaUsarios.filter=filterValue.trim().toLocaleLowerCase();
-    this.buscarUsuarioPorNombre(filterValue);
+    //this.buscarUsuarioPorNombre(filterValue);
   }
 
   aplicarFiltroTablaLocal(event: Event) {
@@ -75,7 +76,7 @@ obtenerUsuarios(){
     });
   }
 
-  editarUsuario(usuario:Usuario){
+  editarUsuario(usuario:UsuarioAUsuario){
     this.dialog.open(ModalUsuarioComponent,{
       disableClose:true,
       data:usuario
@@ -83,11 +84,11 @@ obtenerUsuarios(){
       if(resultado ==="true")this.obtenerUsuarios();
     });
   }
-  eliminarUsuario(usuario:Usuario){
+  eliminarUsuario(usuario:UsuarioAUsuario){
     Swal.fire({
 
       title:"¿Desea eliminar el usuario?",
-      text:usuario.nombre,
+      text:usuario.usu_nombre,
       icon:"warning",
       confirmButtonColor:"#3085d6",
       confirmButtonText:"Si",
@@ -99,7 +100,7 @@ obtenerUsuarios(){
     }).then((resultado)=>{
 
       if(resultado.isConfirmed){
-        this._usuarioServicio.eliminarUsuario(usuario.idUsuario).subscribe({
+        this._usuarioServicio.eliminarUsuario(usuario.usu_id).subscribe({
           next:(data)=>{
             if(data.codigoError === -1){
               this._utilidadServicio.mostrarAlerta("El usuario fue eliminado","Listo!");
@@ -118,7 +119,7 @@ obtenerUsuarios(){
 
   }
 
-  buscarUsuarioPorNombre(nombre: string) {
+  /*buscarUsuarioPorNombre(nombre: string) {
     if (nombre.trim() === '') {
       this.obtenerUsuarios(); // Si el campo está vacío, cargar todos los usuarios
     } else {
@@ -137,7 +138,7 @@ obtenerUsuarios(){
         }
       });
     }
-  }
+  }*/
 
 
 

@@ -8,6 +8,7 @@ import { Usuario } from '../../../../interfaces/usuario';
 import { RolService } from '../../../../Services/rol.service';
 import { UsuarioService } from '../../../../Services/usuario.service';
 import { UtilidadService } from '../../../../Reutilizable/utilidad.service';
+import { UsuarioAUsuario } from '../../../../interfaces/usuario-a-usuario';
 
 @Component({
   selector: 'app-modal-usuario',
@@ -25,7 +26,7 @@ export class ModalUsuarioComponent implements OnInit{
   constructor(
 
     private modalActual:MatDialogRef<ModalUsuarioComponent>,
-    @Inject(MAT_DIALOG_DATA) public datosUsuario: Usuario,
+    @Inject(MAT_DIALOG_DATA) public datosUsuario: UsuarioAUsuario,
     private fb:FormBuilder,
     private _rolServicio:RolService,
     private _usuarioServicio:UsuarioService,
@@ -36,7 +37,8 @@ export class ModalUsuarioComponent implements OnInit{
       correo: ["", Validators.required], 
       idRol: ["", Validators.required], 
       clave: ["", Validators.required], 
-      status: ["1", Validators.required], 
+      cedula: ["", Validators.required], 
+      rolDescripcion: ["", Validators.required]
     });
 
     if(this.datosUsuario !=null){
@@ -53,30 +55,29 @@ export class ModalUsuarioComponent implements OnInit{
       error:(e) =>{}
     })
 
-
-
   }
    ngOnInit(): void {
      if(this.datosUsuario!=null){
       this.formularioUsuario.patchValue({
-        nombre: this.datosUsuario.nombre,  // Corregido: Comillas bien colocadas
-        correo: this.datosUsuario.correo, 
-        idRol: this.datosUsuario.idRol, 
-        clave: this.datosUsuario.clave, 
-        status: this.datosUsuario.status , 
+        nombre: this.datosUsuario.usu_nombre,  // Corregido: Comillas bien colocadas
+        correo: this.datosUsuario.usu_correo, 
+        idRol: this.datosUsuario.rol_id, 
+        clave: this.datosUsuario.usu_clave, 
+        cedula: this.datosUsuario.usu_cedula,
+        rolDescripcion: this.datosUsuario.rol_descripcion
       })
      }
    }
 
    guardarEditar_Usuario() {
-    const _usuario: Usuario = {
-      idUsuario: this.datosUsuario == null ? 0 : this.datosUsuario.idUsuario,
-      nombre: this.formularioUsuario.value.nombre,
-      correo: this.formularioUsuario.value.correo,
-      idRol: this.formularioUsuario.value.idRol,
-      rolDescripcion: "", 
-      clave: this.formularioUsuario.value.clave,
-      status: parseInt(this.formularioUsuario.value.status)  // Asegúrate de que esActivo sea convertible a número
+    const _usuario: UsuarioAUsuario = {
+      usu_id: this.datosUsuario == null ? 0 : this.datosUsuario.usu_id,
+      usu_nombre: this.formularioUsuario.value.nombre,
+      usu_correo: this.formularioUsuario.value.correo,
+      rol_id: this.formularioUsuario.value.idRol,
+      rol_descripcion: this.formularioUsuario.value.rolDescripcion, 
+      usu_clave: this.formularioUsuario.value.clave,
+      usu_cedula: this.formularioUsuario.value.cedula  // Asegúrate de que esActivo sea convertible a número
     };
 
     if (this.datosUsuario == null) {

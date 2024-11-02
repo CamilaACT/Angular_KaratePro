@@ -34,19 +34,13 @@
 
         <mat-grid-tile>
             <mat-form-field appearance="outline">
-                <mat-label>Estado</mat-label>
-                <mat-select formControlName="status">
-                    <mat-option value="1">
-                        Activo
-                    </mat-option>
-                    <mat-option value="0">
-                        No activo
-                    </mat-option>
-                </mat-select>
-
-                <mat-icon matSuffix>mail</mat-icon>
+                <mat-label>Cédula</mat-label>
+                <input matInput autocomplete="off" formControlName="cedula">
+                <mat-icon matSuffix>account-box</mat-icon>
             </mat-form-field>
         </mat-grid-tile>
+
+       
     </mat-grid-list>
   </form>
 </mat-dialog-content>
