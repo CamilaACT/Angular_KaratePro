@@ -14,6 +14,8 @@ import { CompetenciaComponent } from './Pages/competencia/competencia.component'
 import { ModalCompetenciaComponent } from './Modales/modal-competencia/modal-competencia.component';
 import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
 import { ModalTecnicaComponent } from './Modales/modal-tecnica/modal-tecnica.component';
+import { RolComponent } from './Pages/rol/rol.component';
+import { ModalRolComponent } from './Modales/modal-rol/modal-rol.component';
 
 
 
@@ -30,7 +32,9 @@ import { ModalTecnicaComponent } from './Modales/modal-tecnica/modal-tecnica.com
     CompetenciaComponent,
     ModalCompetenciaComponent,
     TecnicaComponent,
-    ModalTecnicaComponent
+    ModalTecnicaComponent,
+    RolComponent,
+    ModalRolComponent
   ],
   imports: [
     CommonModule,

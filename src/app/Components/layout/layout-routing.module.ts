@@ -7,6 +7,7 @@ import { RangoComponent } from './Pages/rango/rango.component';
 import { ClubComponent } from './Pages/club/club.component';
 import { CompetenciaComponent } from './Pages/competencia/competencia.component';
 import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
+import { RolComponent } from './Pages/rol/rol.component';
 
 const routes: Routes = [{
   path:"",
@@ -40,6 +41,13 @@ const routes: Routes = [{
       component:TecnicaComponent,
       canActivate:[authGuard]
     }
+    ,
+    {
+      path:'roles',
+      component:RolComponent,
+      canActivate:[authGuard]
+    }
+
 
 
   ]
