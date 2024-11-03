@@ -6,6 +6,7 @@ import { authGuard } from '../../custom/auth.guard';
 import { RangoComponent } from './Pages/rango/rango.component';
 import { ClubComponent } from './Pages/club/club.component';
 import { CompetenciaComponent } from './Pages/competencia/competencia.component';
+import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
 
 const routes: Routes = [{
   path:"",
@@ -31,6 +32,12 @@ const routes: Routes = [{
     {
       path:'competencias',
       component:CompetenciaComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      path:'tecnicas',
+      component:TecnicaComponent,
       canActivate:[authGuard]
     }
 

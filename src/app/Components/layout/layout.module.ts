@@ -12,6 +12,8 @@ import { ClubComponent } from './Pages/club/club.component';
 import { ModalClubComponent } from './Modales/modal-club/modal-club.component';
 import { CompetenciaComponent } from './Pages/competencia/competencia.component';
 import { ModalCompetenciaComponent } from './Modales/modal-competencia/modal-competencia.component';
+import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
+import { ModalTecnicaComponent } from './Modales/modal-tecnica/modal-tecnica.component';
 
 
 
@@ -26,7 +28,9 @@ import { ModalCompetenciaComponent } from './Modales/modal-competencia/modal-com
     ClubComponent,
     ModalClubComponent,
     CompetenciaComponent,
-    ModalCompetenciaComponent
+    ModalCompetenciaComponent,
+    TecnicaComponent,
+    ModalTecnicaComponent
   ],
   imports: [
     CommonModule,
