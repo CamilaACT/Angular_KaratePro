@@ -10,6 +10,8 @@ import { RangoComponent } from './Pages/rango/rango.component';
 import { ModalRangoComponent } from './Modales/modal-rango/modal-rango.component';
 import { ClubComponent } from './Pages/club/club.component';
 import { ModalClubComponent } from './Modales/modal-club/modal-club.component';
+import { CompetenciaComponent } from './Pages/competencia/competencia.component';
+import { ModalCompetenciaComponent } from './Modales/modal-competencia/modal-competencia.component';
 
 
 
@@ -22,7 +24,9 @@ import { ModalClubComponent } from './Modales/modal-club/modal-club.component';
     RangoComponent,
     ModalRangoComponent,
     ClubComponent,
-    ModalClubComponent
+    ModalClubComponent,
+    CompetenciaComponent,
+    ModalCompetenciaComponent
   ],
   imports: [
     CommonModule,

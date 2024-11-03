@@ -28,10 +28,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { authInterceptor } from '../../custom/auth.interceptor';
 
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+
+
  
   ],
   exports: [
@@ -59,10 +63,12 @@ import { authInterceptor } from '../../custom/auth.interceptor';
     MatDatepickerModule,
     MatNativeDateModule,
     MomentDateModule,
+    MatMomentDateModule
   ],
   providers:[
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMomentDateModule,
     provideHttpClient(withFetch(),withInterceptors([authInterceptor])) 
 
   ]
