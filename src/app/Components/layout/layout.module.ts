@@ -16,6 +16,10 @@ import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
 import { ModalTecnicaComponent } from './Modales/modal-tecnica/modal-tecnica.component';
 import { RolComponent } from './Pages/rol/rol.component';
 import { ModalRolComponent } from './Modales/modal-rol/modal-rol.component';
+import { CompetidorComponent } from './Pages/competidor/competidor.component';
+import { ModalCompetidorComponent } from './Modales/modal-competidor/modal-competidor.component';
+import { PeleaComponent } from './Pages/pelea/pelea.component';
+import { ModalPeleaComponent } from './Modales/modal-pelea/modal-pelea.component';
 
 
 
@@ -34,7 +38,11 @@ import { ModalRolComponent } from './Modales/modal-rol/modal-rol.component';
     TecnicaComponent,
     ModalTecnicaComponent,
     RolComponent,
-    ModalRolComponent
+    ModalRolComponent,
+    CompetidorComponent,
+    ModalCompetidorComponent,
+    PeleaComponent,
+    ModalPeleaComponent
   ],
   imports: [
     CommonModule,

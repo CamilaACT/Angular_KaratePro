@@ -8,6 +8,8 @@ import { ClubComponent } from './Pages/club/club.component';
 import { CompetenciaComponent } from './Pages/competencia/competencia.component';
 import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
 import { RolComponent } from './Pages/rol/rol.component';
+import { CompetidorComponent } from './Pages/competidor/competidor.component';
+import { PeleaComponent } from './Pages/pelea/pelea.component';
 
 const routes: Routes = [{
   path:"",
@@ -45,6 +47,18 @@ const routes: Routes = [{
     {
       path:'roles',
       component:RolComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      path:'competidores',
+      component:CompetidorComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      path:'peleas',
+      component:PeleaComponent,
       canActivate:[authGuard]
     }
 
