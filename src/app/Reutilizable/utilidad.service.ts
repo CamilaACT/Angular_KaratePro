@@ -19,34 +19,41 @@ export class UtilidadService {
     })
   }
   guardarSesionUsuario(message: string) {
-
-    const partes = message.split('|');
+    if (typeof window !== 'undefined') {
+      const partes = message.split('|');
   
-
-    const sesionUsuario: Sesion = {
-      idUsuario: parseInt(partes[0]),     // Convertir el idUsuario a número
-      nombre: partes[1],                  // Asignar el nombre
-      correo: partes[2],                  // Asignar el correo
-      rolDescripcion: partes[3],          // Asignar la descripción del rol
-      token: partes[4]                    // Asignar el token
-    };
+      const sesionUsuario: Sesion = {
+        idUsuario: parseInt(partes[0]),     
+        nombre: partes[1],                  
+        correo: partes[2],                  
+        rolDescripcion: partes[3],          
+        token: partes[4]                    
+      };
   
+      localStorage.setItem("sesion", JSON.stringify(sesionUsuario));
+    }
+  }
   
-    localStorage.setItem("sesion", JSON.stringify(sesionUsuario));
+  obtenerSesionUsuario() {
+    if (typeof window !== 'undefined') {
+      const dataCadena = localStorage.getItem("sesion");
+      return dataCadena ? JSON.parse(dataCadena) : null;
+    }
+    return null;
   }
-  obtenerSesionUsuario(){
-    const dataCadena =localStorage.getItem("sesion");
-    const usuario = JSON.parse(dataCadena!);
-    return usuario;
+  
+  eliminarSesionUsuario() {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem("sesion");
+    }
   }
-  eliminarSesionUsuario(){
-    localStorage.removeItem("sesion")
-  }
+  
 
   obtenerRolUsuario(): string {
     const usuario = this.obtenerSesionUsuario();
     return usuario ? usuario.rolDescripcion : '';
-}
+  }
+  
 
 
 }
