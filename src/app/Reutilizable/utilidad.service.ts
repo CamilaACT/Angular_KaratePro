@@ -43,5 +43,10 @@ export class UtilidadService {
     localStorage.removeItem("sesion")
   }
 
+  obtenerRolUsuario(): string {
+    const usuario = this.obtenerSesionUsuario();
+    return usuario ? usuario.rolDescripcion : '';
+}
+
 
 }

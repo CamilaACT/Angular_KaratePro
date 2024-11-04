@@ -1,15 +1,12 @@
-
-
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <h1>Sistema Venta</h1>
         <button mat-icon-button (click)="sidenav.toggle();">
             <mat-icon>menu</mat-icon>
         </button>
-        <span class="spacer"></span> <!-- This will push the logout button to the right -->
-
+        <span class="spacer"></span>
         <button mat-button (click)="logout()">
-        <mat-icon>logout</mat-icon> Cerrar Sesión
+            <mat-icon>logout</mat-icon> Cerrar Sesión
         </button>
     </mat-toolbar-row>
 </mat-toolbar>
@@ -17,48 +14,16 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px;">
         <mat-nav-list>
-            <mat-list-item routerLink="/pages/usuarios">
-                <mat-icon mat-list-icon>group</mat-icon>
-                <div mat-line>Usuarios</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/rangos">
-                <mat-icon mat-list-icon>military_tech</mat-icon>
-                <div mat-line>Rangos</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/clubes">
-                <mat-icon mat-list-icon>groups</mat-icon>
-                <div mat-line>Clubes</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/competencias">
-                <mat-icon mat-list-icon>emoji_events</mat-icon>
-                <div mat-line>Competencias</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/tecnicas">
-                <mat-icon mat-list-icon>sports_martial_arts</mat-icon>
-                <div mat-line>Técnicas</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/roles">
-                <mat-icon mat-list-icon>admin_panel_settings</mat-icon>
-                <div mat-line>Roles</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/competidores">
-                <mat-icon mat-list-icon>sports_kabaddi</mat-icon>
-                <div mat-line>Competidor</div>
-            </mat-list-item>
-            <mat-list-item routerLink="/pages/peleas">
-                <mat-icon mat-list-icon>sports_martial_arts</mat-icon>
-                <div mat-line>Pelea</div>
+            <mat-list-item *ngFor="let option of filteredMenuOptions" [routerLink]="option.route">
+                <mat-icon mat-list-icon>{{ option.icon }}</mat-icon>
+                <div mat-line>{{ option.label }}</div>
             </mat-list-item>
         </mat-nav-list>
     </mat-sidenav>
-    
 
     <mat-sidenav-content>
-      <div style="height: 90vh;">
-        <router-outlet></router-outlet>
-      </div>  
+        <div style="height: 90vh;">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
-
-
 </mat-sidenav-container>
-

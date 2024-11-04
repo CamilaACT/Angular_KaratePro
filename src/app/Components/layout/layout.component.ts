@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 import { UtilidadService } from '../../Reutilizable/utilidad.service';
 import { Router } from '@angular/router';
 
+
+interface MenuOption {
+  label: string;
+  icon: string;
+  route: string;
+  rolesAllowed: string[]; // Array de roles que pueden ver esta opción
+}
+
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -9,7 +17,26 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent {
 
+    menuOptions: MenuOption[] = [
+      { label: 'Usuarios', icon: 'group', route: '/pages/usuarios', rolesAllowed: ['Administrador'] },
+      { label: 'Rangos', icon: 'military_tech', route: '/pages/rangos', rolesAllowed: ['Director de clubes'] },
+      { label: 'Clubes', icon: 'groups', route: '/pages/clubes', rolesAllowed: ['Director de clubes'] },
+      { label: 'Competencias', icon: 'emoji_events', route: '/pages/competencias', rolesAllowed: ['Juez de mesa'] },
+      { label: 'Técnicas', icon: 'sports_martial_arts', route: '/pages/tecnicas', rolesAllowed: ['Juez de mesa'] },
+      { label: 'Roles', icon: 'admin_panel_settings', route: '/pages/roles', rolesAllowed: ['Administrador'] },
+      { label: 'Competidores', icon: 'sports_kabaddi', route: '/pages/competidores', rolesAllowed: ['Director de clubes', 'Juez de mesa'] },
+      { label: 'Pelea', icon: 'sports_martial_arts', route: '/pages/peleas', rolesAllowed: ['Administrador'] }
+  ];
+
+  filteredMenuOptions: MenuOption[] = [];
+
   constructor(private utilidadService: UtilidadService, private router: Router) { }
+
+
+  ngOnInit() {
+    const userRole = this.utilidadService.obtenerRolUsuario();
+    this.filteredMenuOptions = this.menuOptions.filter(option => option.rolesAllowed.includes(userRole));
+}
 
   logout() {
 
