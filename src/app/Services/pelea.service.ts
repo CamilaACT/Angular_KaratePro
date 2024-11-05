@@ -36,5 +36,9 @@ export class PeleaService {
   eliminarRango(request:number):Observable<ResponseApi>{
     return this.http.delete<ResponseApi>(`${this.urlApi}eliminar/${request}`);
   }
+
+  consultaRivalesId(request:number):Observable<ResponseApi>{
+    return this.http.get<ResponseApi>(`${this.urlApi}consultaRivalesID/${request}`);
+  }
 }
 

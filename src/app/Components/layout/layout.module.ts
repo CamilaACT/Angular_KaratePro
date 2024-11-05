@@ -20,6 +20,7 @@ import { CompetidorComponent } from './Pages/competidor/competidor.component';
 import { ModalCompetidorComponent } from './Modales/modal-competidor/modal-competidor.component';
 import { PeleaComponent } from './Pages/pelea/pelea.component';
 import { ModalPeleaComponent } from './Modales/modal-pelea/modal-pelea.component';
+import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
 
 
 
@@ -42,7 +43,8 @@ import { ModalPeleaComponent } from './Modales/modal-pelea/modal-pelea.component
     CompetidorComponent,
     ModalCompetidorComponent,
     PeleaComponent,
-    ModalPeleaComponent
+    ModalPeleaComponent,
+    PuntuacionComponent
   ],
   imports: [
     CommonModule,

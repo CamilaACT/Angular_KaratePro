@@ -15,6 +15,7 @@ import { PeleaService } from '../../../../Services/pelea.service';
 import { PeleaCTPelea } from '../../../../interfaces/pelea-ct-pelea';
 import { CompetidorCTCompetidor } from '../../../../interfaces/competidor-ct-competidor';
 import { ModalPeleaComponent } from '../../Modales/modal-pelea/modal-pelea.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pelea',
@@ -31,8 +32,8 @@ dataListaPelea=new MatTableDataSource(this.dataInicio);
 constructor(
   private dialog:MatDialog,
   private _peleaServicio:PeleaService,
-  private _utilidadServicio:UtilidadService
-
+  private _utilidadServicio:UtilidadService,
+  private router: Router 
 
 ){}
 
@@ -82,13 +83,8 @@ obtenerUsuarios(){
     });
   }
 
-  editarUsuario(pelea:PeleaCTPelea){
-    this.dialog.open(ModalPeleaComponent,{
-      disableClose:true,
-      data:pelea
-    }).afterClosed().subscribe(resultado=>{
-      if(resultado ==="true")this.obtenerUsuarios();
-    });
+  editarUsuario(pelea: PeleaCTPelea) {
+    this.router.navigate(['/pages/puntuaciones'], { queryParams: { pel_id: pelea.pel_id } });
   }
   eliminarUsuario(pelea:PeleaCTPelea){
     Swal.fire({

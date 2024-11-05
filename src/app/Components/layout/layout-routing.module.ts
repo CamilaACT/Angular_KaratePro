@@ -10,6 +10,7 @@ import { TecnicaComponent } from './Pages/tecnica/tecnica.component';
 import { RolComponent } from './Pages/rol/rol.component';
 import { CompetidorComponent } from './Pages/competidor/competidor.component';
 import { PeleaComponent } from './Pages/pelea/pelea.component';
+import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
 
 const routes: Routes = [{
   path:"",
@@ -59,6 +60,12 @@ const routes: Routes = [{
     {
       path:'peleas',
       component:PeleaComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      path:'puntuaciones',
+      component:PuntuacionComponent,
       canActivate:[authGuard]
     }
 
