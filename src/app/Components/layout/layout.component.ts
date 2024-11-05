@@ -18,13 +18,13 @@ interface MenuOption {
 export class LayoutComponent {
 
     menuOptions: MenuOption[] = [
-      { label: 'Usuarios', icon: 'group', route: '/pages/usuarios', rolesAllowed: ['Administrador', 'Juez de mesa'] },
+      { label: 'Usuarios', icon: 'group', route: '/pages/usuarios', rolesAllowed: ['Administrador'] },
       { label: 'Rangos', icon: 'military_tech', route: '/pages/rangos', rolesAllowed: ['Director de clubes', 'Juez de mesa'] },
-      { label: 'Clubes', icon: 'groups', route: '/pages/clubes', rolesAllowed: ['Director de clubes', 'Juez de mesa'] },
-      { label: 'Competencias', icon: 'emoji_events', route: '/pages/competencias', rolesAllowed: ['Juez de mesa'] },
-      { label: 'Técnicas', icon: 'sports_martial_arts', route: '/pages/tecnicas', rolesAllowed: ['Juez de mesa'] },
+      { label: 'Clubes', icon: 'groups', route: '/pages/clubes', rolesAllowed: ['Director de clubes'] },
+      { label: 'Competencias', icon: 'emoji_events', route: '/pages/competencias', rolesAllowed: [ 'Juez de mesa'] },
+      { label: 'Técnicas', icon: 'sports_martial_arts', route: '/pages/tecnicas', rolesAllowed: ['Administrador','Juez de mesa'] },
       { label: 'Roles', icon: 'admin_panel_settings', route: '/pages/roles', rolesAllowed: ['Administrador', 'Juez de mesa'] },
-      { label: 'Competidores', icon: 'sports_kabaddi', route: '/pages/competidores', rolesAllowed: ['Director de clubes', 'Juez de mesa'] },
+      { label: 'Competidores', icon: 'sports_kabaddi', route: '/pages/competidores', rolesAllowed: ['Director de clubes'] },
       { label: 'Pelea', icon: 'sports_martial_arts', route: '/pages/peleas', rolesAllowed: ['Administrador', 'Juez de mesa'] }
   ];
 
