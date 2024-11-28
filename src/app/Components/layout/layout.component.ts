@@ -25,7 +25,12 @@ export class LayoutComponent {
       { label: 'Técnicas', icon: 'sports_martial_arts', route: '/pages/tecnicas', rolesAllowed: ['Administrador','Juez de mesa'] },
       { label: 'Roles', icon: 'admin_panel_settings', route: '/pages/roles', rolesAllowed: ['Administrador', 'Juez de mesa'] },
       { label: 'Competidores', icon: 'sports_kabaddi', route: '/pages/competidores', rolesAllowed: ['Director de clubes'] },
-      { label: 'Pelea', icon: 'sports_martial_arts', route: '/pages/peleas', rolesAllowed: ['Administrador', 'Juez de mesa'] }
+      { label: 'Pelea', icon: 'sports_martial_arts', route: '/pages/peleas', rolesAllowed: ['Administrador', 'Juez de mesa'] },
+      { label: 'informeclub', icon: 'sports_martial_arts', route: '/pages/informeclub', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
+      { label: 'informeCompetidores', icon: 'sports_martial_arts', route: '/pages/InformeCompetidorListaComponent', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
+      { label: 'informeEdades', icon: 'sports_martial_arts', route: '/pages/InformeEdadComponent', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
+
+      
   ];
 
   filteredMenuOptions: MenuOption[] = [];

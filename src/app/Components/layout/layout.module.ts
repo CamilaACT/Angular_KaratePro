@@ -21,6 +21,9 @@ import { ModalCompetidorComponent } from './Modales/modal-competidor/modal-compe
 import { PeleaComponent } from './Pages/pelea/pelea.component';
 import { ModalPeleaComponent } from './Modales/modal-pelea/modal-pelea.component';
 import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
+import { InformeClubComponent } from './Pages/informe-club/informe-club.component';
+import { InformeCompetidorListaComponent } from './Pages/informe-competidor-lista/informe-competidor-lista.component';
+import { InformeEdadComponent } from './Pages/informe-edad/informe-edad.component';
 
 
 
@@ -44,7 +47,10 @@ import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
     ModalCompetidorComponent,
     PeleaComponent,
     ModalPeleaComponent,
-    PuntuacionComponent
+    PuntuacionComponent,
+    InformeClubComponent,
+    InformeCompetidorListaComponent,
+    InformeEdadComponent
   ],
   imports: [
     CommonModule,

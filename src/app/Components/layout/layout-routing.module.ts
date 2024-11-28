@@ -11,6 +11,9 @@ import { RolComponent } from './Pages/rol/rol.component';
 import { CompetidorComponent } from './Pages/competidor/competidor.component';
 import { PeleaComponent } from './Pages/pelea/pelea.component';
 import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
+import { InformeClubComponent } from './Pages/informe-club/informe-club.component';
+import { InformeCompetidorListaComponent } from './Pages/informe-competidor-lista/informe-competidor-lista.component';
+import { InformeEdadComponent } from './Pages/informe-edad/informe-edad.component';
 
 const routes: Routes = [{
   path:"",
@@ -66,6 +69,25 @@ const routes: Routes = [{
     {
       path:'puntuaciones',
       component:PuntuacionComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      path:'informeclub',
+      component:InformeClubComponent,
+      canActivate:[authGuard]
+    }
+    ,
+    {
+      
+      path:'InformeCompetidorListaComponent',
+      component:InformeCompetidorListaComponent,
+      canActivate:[authGuard]
+    }
+    ,{
+      
+      path:'InformeEdadComponent',
+      component:InformeEdadComponent,
       canActivate:[authGuard]
     }
 

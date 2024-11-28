@@ -139,4 +139,28 @@ export class PuntuacionComponent implements OnInit {
   volverALaLista() {
     this.router.navigate(['/pages/peleas']); // Redirige a la lista de peleas
   }
+
+  finalizarPelea(): void {
+    if (!this.peleaId) {
+      Swal.fire('Error', 'No se pudo identificar la pelea actual.', 'error');
+      return;
+    }
+  
+    const request = { pel_id: this.peleaId };
+  
+    this.peleaService.grabaGanador(request).subscribe({
+      next: (response) => {
+        if (response.codigoError === -1) {
+          Swal.fire('¡Éxito!', 'La pelea ha sido finalizada correctamente.', 'success');
+          this.router.navigate(['/pages/peleas']); // Redirigir a la lista de peleas
+        } else {
+          Swal.fire('Error', response.message, 'error');
+        }
+      },
+      error: (error) => {
+        Swal.fire('Error', 'Hubo un problema al finalizar la pelea.', 'error');
+        console.error('Error al finalizar pelea:', error);
+      }
+    });
+  }
 }

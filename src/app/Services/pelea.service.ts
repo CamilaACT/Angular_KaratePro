@@ -25,13 +25,14 @@ export class PeleaService {
     return this.http.post<ResponseApi>(`${this.urlApi}grabar`, request);
   }
 
+  grabaGanador(request: { pel_id: number }): Observable<ResponseApi> {
+    return this.http.post<ResponseApi>(`${this.urlApi}grabarGanador`, request);
+  }
+  
+
   actualizaRango(request:PeleaAPelea):Observable<ResponseApi>{
     return this.http.put<ResponseApi>(`${this.urlApi}actualizar`, request);
   }
-
- /* buscarUsuario(request:UsurioNombre):Observable<ResponseApi>{
-    return this.http.post<ResponseApi>(`${this.urlApi}buscar`, request);
-  }*/
 
   eliminarRango(request:number):Observable<ResponseApi>{
     return this.http.delete<ResponseApi>(`${this.urlApi}eliminar/${request}`);
