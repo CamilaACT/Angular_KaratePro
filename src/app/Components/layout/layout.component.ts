@@ -29,7 +29,7 @@ export class LayoutComponent {
       { label: 'informeclub', icon: 'sports_martial_arts', route: '/pages/informeclub', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
       { label: 'informeCompetidores', icon: 'sports_martial_arts', route: '/pages/InformeCompetidorListaComponent', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
       { label: 'informeEdades', icon: 'sports_martial_arts', route: '/pages/InformeEdadComponent', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
-
+      { label: 'InformePresentacionComponent', icon: 'sports_martial_arts', route: '/pages/InformePresentacionComponent', rolesAllowed: ['Administrador', 'Juez de mesa','Director de clubes'] },
       
   ];
 

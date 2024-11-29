@@ -53,6 +53,11 @@ export class InformeService {
   calcularEficiencia(comId: number): Observable<ResponseApi> {
     return this.http.get<ResponseApi>(`${this.urlApi}calcularEficiencia?comId=${comId}`);
   }
+
+  topCompetidores(comId: number): Observable<ResponseApi> {
+    return this.http.get<ResponseApi>(`${this.urlApi}topcompetidores?comId=${comId}`);
+  }
+  
   
   
 }

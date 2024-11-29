@@ -14,6 +14,7 @@ import { PuntuacionComponent } from './Pages/puntuacion/puntuacion.component';
 import { InformeClubComponent } from './Pages/informe-club/informe-club.component';
 import { InformeCompetidorListaComponent } from './Pages/informe-competidor-lista/informe-competidor-lista.component';
 import { InformeEdadComponent } from './Pages/informe-edad/informe-edad.component';
+import { InformePresentacionComponent } from './Pages/informe-presentacion/informe-presentacion.component';
 
 const routes: Routes = [{
   path:"",
@@ -90,6 +91,14 @@ const routes: Routes = [{
       component:InformeEdadComponent,
       canActivate:[authGuard]
     }
+
+    ,{
+      
+      path:'InformePresentacionComponent',
+      component:InformePresentacionComponent,
+      canActivate:[authGuard]
+    }
+
 
 
 
