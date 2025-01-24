@@ -121,8 +121,7 @@ export class ModalCompetidorComponent implements OnInit{
           if (data.codigoError === 1) {  // Verificamos si data.status es verdadero
             this._utilidadServicio.mostrarAlerta("El competidor no puede ser registrado ya existía un competidor con ese número de cédula", "Error");
             this.modalActual.close("true")
-          }
-          if (data.codigoError === -1) {  // Verificamos si data.status es verdadero
+          } else if (data.codigoError === -1) {  // Verificamos si data.status es verdadero
             this._utilidadServicio.mostrarAlerta("El competidor fue registrado", "Éxito");
             this.modalActual.close("true")
           }
