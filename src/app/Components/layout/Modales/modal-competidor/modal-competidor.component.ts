@@ -118,10 +118,15 @@ export class ModalCompetidorComponent implements OnInit{
     if (this.datosCompetidor == null) {
       this._competidorServicio.grabaRango(_competencia).subscribe({
         next: (data) => {
+          if (data.codigoError === 1) {  // Verificamos si data.status es verdadero
+            this._utilidadServicio.mostrarAlerta("El competidor no puede ser registrado ya existía un competidor con ese número de cédula", "Error");
+            this.modalActual.close("true")
+          }
           if (data.codigoError === -1) {  // Verificamos si data.status es verdadero
             this._utilidadServicio.mostrarAlerta("El competidor fue registrado", "Éxito");
             this.modalActual.close("true")
-          }else{
+          }
+          else{
             this._utilidadServicio.mostrarAlerta("Ocurrió un error al registrar el competidor", "Error");
           }
         },
